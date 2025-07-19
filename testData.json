@@ -1,10 +1,12 @@
 {
-    "validUser": {
-        "username": "standard_user",
-        "password": "secret_sauce"
-    },
-    "invalidUser": {
-        "username": "wrong username",
-        "password": "wrong password"
+    "loginInfo": {
+        "validUsername": "standard_user",
+        "invalidUsername": "wrong_username",
+        "validPassword": "secret_sauce",
+        "invalidPassword": "wrong password",
+        "lockedOutUsername": "locked_out_user",
+        "whitespaceUsername": " standard_user ",
+        "whitespacePassword": " secret_sauce ",
+        "caseSensitiveUsername": "Secret_sauce"
     }
 }

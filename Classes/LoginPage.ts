@@ -1,4 +1,5 @@
 import { Page, expect } from "@playwright/test"
+import { LOGIN_SELECTORS } from "../Constants/selectors"
 
 export class LoginPage {
 
@@ -6,14 +7,14 @@ export class LoginPage {
 
     async loginWithCredentials(username: string, password: string) {
 
-        await this.page.getByPlaceholder('Username').fill(username)
-        await this.page.getByPlaceholder('Password').fill(password)
-        await this.page.locator('#login-button').click()
+        await this.page.getByPlaceholder(LOGIN_SELECTORS.USERNAME).fill(username)
+        await this.page.getByPlaceholder(LOGIN_SELECTORS.PASSWORD).fill(password)
+        await this.page.locator(LOGIN_SELECTORS.LOGIN_BUTTON).click()
 
     }
 
     async expectLoginError(expectedMessage: string) {
-        await expect(this.page.locator('h3')).toContainText(expectedMessage)
+        await expect(this.page.locator(LOGIN_SELECTORS.ERROR_MESSAGE)).toContainText(expectedMessage)
     }
 
 }

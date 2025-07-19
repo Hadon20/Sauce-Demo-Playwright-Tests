@@ -1,0 +1,62 @@
+Playwright Sauce Demo - Next Learning Steps and Practice Guide
+==============================================================
+
+1. Page Object Expansion
+------------------------
+- Define separate page classes like InventoryPage, CartPage, etc.
+- Encapsulate selectors and actions inside each page class.
+- Access page classes via PageManager to keep tests clean and reusable.
+
+2. Inventory Page Tests
+-----------------------
+- Verify all products are listed on the inventory page.
+- Test sorting functionality (by name and price).
+- Add multiple items to the cart.
+- Challenge: Assert that the sorting order actually works (without hardcoding).
+
+3. Cart Interaction
+-------------------
+- Assert the cart badge number updates correctly after adding/removing items.
+- Navigate to the cart page and verify correct items are displayed.
+- Remove items and confirm they no longer appear in the cart.
+- Create utility methods in CartPage class for readability and reuse.
+
+4. Checkout Flow
+----------------
+- Automate the multi-step checkout process:
+  1. Proceed to checkout page.
+  2. Fill in personal information form.
+  3. Complete the purchase and verify success.
+- Consider validation of required fields and error message handling.
+
+5. Error Handling and Assertions
+--------------------------------
+- Extend error validations beyond login:
+  - Checkout form field validations.
+  - Disabled or hidden elements interaction.
+- Ensure assertions are precise and meaningful to catch UI issues.
+
+Practice Topics to Explore
+--------------------------
+- Page Objects:
+  How to reduce duplication by encapsulating repeated selectors and actions?
+
+- Dynamic Locators:
+  Handling selectors when elements depend on dynamic data (like product names).
+
+- Data-Driven Tests:
+  Testing checkout with various user data sets.
+
+- Assertions:
+  Validating sort order or UI changes without relying on fixed values.
+
+- Playwright Config Options:
+  Setting up useful debugging features like screenshots, videos, and traces.
+
+- Test Organization:
+  Organizing smoke tests vs full regression suites effectively.
+
+---
+
+Feel free to revisit this guide whenever you want to plan your next feature or test. Keep experimenting and building your Playwright skills!
+

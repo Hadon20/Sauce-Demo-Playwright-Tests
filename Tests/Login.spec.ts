@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 import { PageManager } from '../Classes/PageManager'
 import testData from '../testData.json'
 import { LOGIN_SELECTORS } from '../Constants/selectors'
-import { LOGIN_ERROR_MESSAGES } from '../Constants/messages'
+import { LOGIN_ERROR_MESSAGES } from '../Constants/Values'
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/')

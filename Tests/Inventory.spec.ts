@@ -46,14 +46,11 @@ const sortingTestCases: sortingTestCases[] = [
     }
 ]
 
-
-//REFACTOR THIS BETTER!!!!!!
-
 test.describe.parallel('Verify all types of sorting', () => {
     for (const { typeOfSortingValue, typeOfSortingLabel, firstItem } of sortingTestCases) {
         test(`Sort test - ${typeOfSortingLabel}`, async ({ page }) => {
-            await page.locator(INVENTORY_SELECTORS.SORT_CONTAINER).click()
-            await page.selectOption(INVENTORY_SELECTORS.SORT_CONTAINER, typeOfSortingValue)
+            const pageManager = new PageManager(page)
+            await pageManager.inventoryAction().sortingItems(typeOfSortingValue)
             const firstInList = page.locator(INVENTORY_SELECTORS.PRODUCT_NAME).first()
             expect(firstInList).toHaveText(firstItem)
         })

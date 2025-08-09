@@ -52,7 +52,24 @@ test.describe.parallel('Verify all types of sorting', () => {
             const pageManager = new PageManager(page)
             await pageManager.inventoryAction().sortingItems(typeOfSortingValue)
             const firstInList = page.locator(INVENTORY_SELECTORS.PRODUCT_NAME).first()
-            expect(firstInList).toHaveText(firstItem)
+            await expect(firstInList).toHaveText(firstItem)
         })
     }
+})
+
+test('Single item page', async ({ page }) => {
+    const listPageProduct = page.locator(INVENTORY_SELECTORS.PRODUCT_NAME, { hasText: ITEMS_ON_SALE.SAUCE_LABS_BACKPACK })
+    const backButton = page.locator(INVENTORY_SELECTORS.BACK_TO_PRODUCTS_ID)
+    const addButton = page.locator(INVENTORY_SELECTORS.ADD_BUTTON_ID)
+    const detailPageTitle = page.locator(INVENTORY_SELECTORS.DETAILS_PRODUCT_NAME, { hasText: ITEMS_ON_SALE.SAUCE_LABS_BACKPACK })
+
+    await listPageProduct.click()
+
+    await expect(page).toHaveURL(/\/inventory-item\.html/)
+
+    await Promise.all([
+        expect(backButton).toBeVisible(),
+        expect(addButton).toBeVisible(),
+        expect(detailPageTitle).toBeVisible(),
+    ])
 })
